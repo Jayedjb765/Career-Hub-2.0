@@ -1,10 +1,11 @@
 import { IoLocationOutline } from "react-icons/io5";
 import { HiOutlineCurrencyDollar } from "react-icons/hi2";
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 const Featurekb = ({job}) => {
-    const {logo,company_name,job_title,remote_or_onsite,job_type,location,salary} = job;
+    const {id,logo,company_name,job_title,remote_or_onsite,job_type,location,salary} = job;
     return (
-        <div className="card card-compact bg-base-100  shadow-xl  flex space-y-3">
+        <div className="card card-compact bg-base-100  shadow-xl  flex space-y-3 mb-6">
       <img src={logo} className="w-[150px] mt-3 ml-3" alt="" />
       <div className="card-body">
         <h2 className="card-title">{job_title}</h2>
@@ -21,7 +22,9 @@ const Featurekb = ({job}) => {
 
         </div>
         <div className="card-actions ">
-        <button className="btn bg-sky-400 text-white  font-extrabold  "> View Details</button>
+       <Link to={`/job/${id}`}>
+       <button className="btn bg-sky-400 text-white  font-extrabold  "> View Details</button>
+       </Link>
          
         </div>
       </div>

@@ -4,6 +4,7 @@ import Featurekb from "../Featurejb/Featurekb";
 
 const Featuredjob = () => {
     const [jobs,setjobs] = useState([]);
+    const [datalength,setdatalength] = useState(4);
     useEffect(()=>{
         fetch('jobs.json')
         .then(res => res.json())
@@ -18,12 +19,15 @@ const Featuredjob = () => {
       </h5>
       <div className="grid lg:grid-cols-2 gap-6">
         {
-            jobs.map(job => <Featurekb
+            jobs.slice(0,datalength).map(job => <Featurekb
             key={job.id}
             job={job}
             ></Featurekb>)
         }
 
+      </div>
+      <div className={datalength === jobs.length && 'hidden'} >
+        <button onClick={()=>setdatalength(jobs.length)} className="btn bg-gradient-to-r from-sky-500 to-indigo-500 text-white mt-5 text-center items-center">Show All</button>
       </div>
             
         </div>
