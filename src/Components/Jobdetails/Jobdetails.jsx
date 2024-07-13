@@ -4,6 +4,8 @@ import { TfiBag } from "react-icons/tfi";
 import { FaPhoneFlip } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { PiAddressBookLight } from "react-icons/pi";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Jobdetails = () => {
     const jobs = useLoaderData();
@@ -11,6 +13,9 @@ const Jobdetails = () => {
     const parsid =  parseInt(id);
     const job  =  jobs.find(job => job.id === parsid );
     console.log(job);
+    const handelapply = () =>{
+        toast("You Have Applied Successfuly");
+    }
     return (
         <div className="mb-6">
             <h2 className="text-3xl font-extrabold text-center">Job details </h2>
@@ -38,7 +43,8 @@ const Jobdetails = () => {
                 <h2 className="text-base flex mb-4 "> <PiAddressBookLight className="mt-1 mr-1"></PiAddressBookLight> <p><strong>Address:</strong>  {job.contact_information.email}</p></h2>
                 </div>
                 <div className="">
-                <button className="btn btn-primary w-full  ">Apply Now</button>
+                <button onClick={handelapply} className="btn btn-primary w-full  ">Apply Now</button>
+                <ToastContainer />
                 </div>
                 </div>
             </div>

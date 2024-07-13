@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Featurekb from "../Featurejb/Featurekb";
 
 
+
 const Featuredjob = () => {
     const [jobs,setjobs] = useState([]);
     const [datalength,setdatalength] = useState(4);
