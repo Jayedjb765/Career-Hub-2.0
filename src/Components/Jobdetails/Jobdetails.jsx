@@ -6,6 +6,7 @@ import { MdEmail } from "react-icons/md";
 import { PiAddressBookLight } from "react-icons/pi";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { savejobapplication } from "../Utility/localstorage";
 
 const Jobdetails = () => {
     const jobs = useLoaderData();
@@ -14,6 +15,7 @@ const Jobdetails = () => {
     const job  =  jobs.find(job => job.id === parsid );
     console.log(job);
     const handelapply = () =>{
+        savejobapplication(id);
         toast("You Have Applied Successfuly");
     }
     return (
